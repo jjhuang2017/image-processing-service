@@ -34,7 +34,7 @@ router.get('/Small-Image-URL', function(req, res) {
 	res.send("http://127.0.0.1:3003/images/small/xIOfB.jpg");
 });
 
-router.post('/upload_image', function (req, res) {
+router.post('/Image-Resize', function (req, res) {
     req.pipe(req.busboy);
     req.busboy.on('file', function (fieldname, file, filename) {
         console.log('\n\nUploading file: '.underline.bold +filename .underline.bold);
