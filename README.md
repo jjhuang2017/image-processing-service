@@ -38,28 +38,28 @@ http://localhost:3003
 * 圖片上傳：
 
 ```
-Type：`POST`
-URL：`http://localhost:3003/Image-Upload-Service`
+Type：POST
+URL：http://localhost:3003/Image-Upload-Service
 ```
 
 * 圖片縮放(resize)：
 ```
-Type：`POST`
-URL：`http://localhost:3003/Image-Resize`
+Type：POST
+URL：http://localhost:3003/Image-Resize
 ```
 
 * 圖片縮址(大圖示)
 ```
-Type：`GET`
-URL：`http://localhost:3003/Large-Image-URL`
+Type：GET
+URL：http://localhost:3003/Large-Image-URL
 ```
 * 圖片縮址(中圖示)
 ```
-Type：`GET`
-URL：`http://localhost:3003/Medium-Image-URL`
+Type：GET
+URL：http://localhost:3003/Medium-Image-URL
 ```
 * 圖片縮址(小圖示)
 ```
 Type：`GET`
-URL：`http://localhost:3003/Small-Image-URL`
+URL：http://localhost:3003/Small-Image-URL
 ```
