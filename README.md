@@ -60,6 +60,6 @@ URL：http://localhost:3003/Medium-Image-URL
 ```
 * 圖片縮址(小圖示)
 ```
-Type：`GET`
+Type：GET
 URL：http://localhost:3003/Small-Image-URL
 ```
