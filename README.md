@@ -30,35 +30,36 @@ $ npm start
 ```
 
 * step5：服務位址
-`http://localhost:3003`
-
+```
+http://localhost:3003
+```
 ## 圖片處理服務的應用程式介面(API)說明
 
 * 圖片上傳：
 
 ```
-**Type**：`POST`
-**URL**：`http://localhost:3003/Image-Upload-Service`
+Type：`POST`
+URL：`http://localhost:3003/Image-Upload-Service`
 ```
 
 * 圖片縮放(resize)：
 ```
-**Type**：`POST`
-**URL**：`http://localhost:3003/Image-Resize`
+Type：`POST`
+URL：`http://localhost:3003/Image-Resize`
 ```
 
 * 圖片縮址(大圖示)
 ```
-**Type**：`GET`
-**URL**：`http://localhost:3003/Large-Image-URL`
+Type：`GET`
+URL：`http://localhost:3003/Large-Image-URL`
 ```
 * 圖片縮址(中圖示)
 ```
-**Type**：`GET`
-**URL**：`http://localhost:3003/Medium-Image-URL`
+Type：`GET`
+URL：`http://localhost:3003/Medium-Image-URL`
 ```
 * 圖片縮址(小圖示)
 ```
-**Type**：`GET`
-**URL**：`http://localhost:3003/Small-Image-URL`
+Type：`GET`
+URL：`http://localhost:3003/Small-Image-URL`
 ```
