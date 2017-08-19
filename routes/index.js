@@ -9,7 +9,8 @@ var storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
 		var fileFormat = (file.originalname).split(".");
-        cb(null, 'input_image.png');
+        cb(null, 'crop_image.png');
+		//cb(null, Date.now() + '.png');
   }
 })
 
@@ -26,7 +27,7 @@ router.post('/Image-Upload-Service', upload.single('imageupload'),function(req, 
 });
 
 router.get('/Large-Image-URL', function(req, res) {
-	sharp(path + 'input_image.png')
+	sharp(path + 'crop_image.png')
 		.resize(150, 150)
 		.toFile(path + '/large/' + Math.floor(Date.now() / 1000) + '.png', function(err) {  
 		if (err) {  
@@ -37,7 +38,7 @@ router.get('/Large-Image-URL', function(req, res) {
 });
 
 router.get('/Medium-Image-URL', function(req, res) {
-	sharp(path + 'input_image.png')
+	sharp(path + 'crop_image.png')
 		.resize(100, 100)
 		.toFile(path + '/medium/' + Math.floor(Date.now() / 1000) + '.png', function(err) {  
 		if (err) {  
@@ -48,7 +49,7 @@ router.get('/Medium-Image-URL', function(req, res) {
 });
 
 router.get('/Small-Image-URL', function(req, res) {
-	sharp(path + 'input_image.png')
+	sharp(path + 'crop_image.png')
 		.resize(50, 50)
 		.toFile(path + '/small/' + Math.floor(Date.now() / 1000) + '.png', function(err) {  
 		if (err) {  
