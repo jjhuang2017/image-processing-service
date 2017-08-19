@@ -23,6 +23,11 @@ $ cd myapp
 ```shell
 $ npm install
 ```
+若在Windows環境無法安裝[Sharp](https://www.npmjs.com/package/sharp)套件，請執行下列命令：
+```
+$ npm install --global --production windows-build-tools
+$ npm config set msvs_version 2015 --global
+```
 
 * step4：啟動位於專案的程式
 ```shell
@@ -35,31 +40,25 @@ http://localhost:3003
 ```
 ## 圖片處理服務的應用程式介面(API)說明
 
-* 圖片上傳服務界面：
+* 圖片上傳服務介面：
 ```
 Type：POST
 URL：http://localhost:3003/Image-Upload-Service
 ```
 
-* 圖片縮放(resize)服務界面：
-```
-Type：POST
-URL：http://localhost:3003/Image-Resize
-```
-
-* 圖片縮址(大圖示)服務界面：
+* 圖片縮址(大圖示)服務介面：
 ```
 Type：GET
 URL：http://localhost:3003/Large-Image-URL
 ```
 
-* 圖片縮址(中圖示)服務界面：
+* 圖片縮址(中圖示)服務介面：
 ```
 Type：GET
 URL：http://localhost:3003/Medium-Image-URL
 ```
 
-* 圖片縮址(小圖示)服務界面：
+* 圖片縮址(小圖示)服務介面：
 ```
 Type：GET
 URL：http://localhost:3003/Small-Image-URL
