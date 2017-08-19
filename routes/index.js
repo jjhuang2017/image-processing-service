@@ -10,12 +10,11 @@ var storage = multer.diskStorage({
     filename: function (req, file, cb) {
 		var fileFormat = (file.originalname).split(".");
         cb(null, 'input_image.png');
-		//cb(null, Date.now() + '.png');
   }
 })
 
 var upload = multer({ storage: storage })
-var path = 'D:/node/image-processing-service/public/images/';
+var path = 'public/images/';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
