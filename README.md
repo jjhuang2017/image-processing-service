@@ -64,14 +64,3 @@ URL：http://localhost:3003/Medium-Image-URL
 Type：GET
 URL：http://localhost:3003/Small-Image-URL
 ```
-
-## 設置圖片儲存路徑
-
-* 圖片儲存路徑為提供圖片處理(crop, resize)的檔案儲存位置，可以根據`path`來設置路徑。
-```js
-var path = 'D:/image-processing-service/public/images/';
-...
-sharp(path + 'input_image.png')
-...
-});
-```
