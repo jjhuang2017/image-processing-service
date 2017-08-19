@@ -1,17 +1,21 @@
 var express = require('express');
 var router = express.Router();
 var multer  = require('multer');
+var sharp = require('sharp');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'public/images/')
     },
     filename: function (req, file, cb) {
-        cb(null, file.originalname)
+		var fileFormat = (file.originalname).split(".");
+        cb(null, 'input_image.png');
+		//cb(null, Date.now() + '.png');
   }
 })
 
 var upload = multer({ storage: storage })
+var path = 'D:/node/image-processing-service/public/images/';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -23,32 +27,36 @@ router.post('/Image-Upload-Service', upload.single('imageupload'),function(req, 
 });
 
 router.get('/Large-Image-URL', function(req, res) {
-	res.send("http://127.0.0.1:3003/images/large/xIOfB.jpg");
+	sharp(path + 'input_image.png')
+		.resize(150, 150)
+		.toFile(path + '/large/' + Math.floor(Date.now() / 1000) + '.png', function(err) {  
+		if (err) {  
+			throw err;  
+		}  
+	});
+	res.send('http://127.0.0.1:3003/images/large/' + Math.floor(Date.now() / 1000) + '.png');
 });
 
 router.get('/Medium-Image-URL', function(req, res) {
-	res.send("http://127.0.0.1:3003/images/medium/xIOfB.jpg");
+	sharp(path + 'input_image.png')
+		.resize(100, 100)
+		.toFile(path + '/medium/' + Math.floor(Date.now() / 1000) + '.png', function(err) {  
+		if (err) {  
+			throw err;  
+		}  
+	});
+	res.send('http://127.0.0.1:3003/images/medium/' + Math.floor(Date.now() / 1000) + '.png');
 });
 
 router.get('/Small-Image-URL', function(req, res) {
-	res.send("http://127.0.0.1:3003/images/small/xIOfB.jpg");
-});
-
-router.post('/Image-Resize', function (req, res) {
-    req.pipe(req.busboy);
-    req.busboy.on('file', function (fieldname, file, filename) {
-        console.log('\n\nUploading file: '.underline.bold +filename .underline.bold);
-        gm(file,'public/images/' + filename)
-        .resize(50,50)
-        .write('public/images/' + filename, function (err) {
-            console.log("finished");
-        });
-    });
-
-    req.busboy.on('finish', function () {
-        res.writeHead(303, { Connection: 'close', Location: '/' });
-        res.end();
-    });
+	sharp(path + 'input_image.png')
+		.resize(50, 50)
+		.toFile(path + '/small/' + Math.floor(Date.now() / 1000) + '.png', function(err) {  
+		if (err) {  
+			throw err;  
+		}  
+	});
+	res.send('http://127.0.0.1:3003/images/small/' + Math.floor(Date.now() / 1000) + '.png');
 });
 
 module.exports = router;
