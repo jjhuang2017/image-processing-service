@@ -39,17 +39,6 @@ $ npm start
 http://localhost:3003
 ```
 
-## 
-
-* step2：建立目錄並切換到建立完成的目錄
-```js
-var path = 'D:/node/image-processing-service/public/images/';
-
-sharp(path + 'input_image.png')
-...
-});
-```
-
 ## 圖片處理服務的應用程式介面(API)說明
 
 * 圖片上傳服務介面：
@@ -74,4 +63,15 @@ URL：http://localhost:3003/Medium-Image-URL
 ```
 Type：GET
 URL：http://localhost:3003/Small-Image-URL
+```
+
+## 設置圖片儲存路徑
+
+* 圖片儲存路徑為提供圖片縮址的檔案存取來源，可以根據`path`來設置路徑。
+```js
+var path = 'D:/image-processing-service/public/images/';
+...
+sharp(path + 'input_image.png')
+...
+});
 ```
