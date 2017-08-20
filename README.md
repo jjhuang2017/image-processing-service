@@ -23,7 +23,7 @@ $ cd myapp
 ```shell
 $ npm install
 ```
-若在Windows環境無法安裝[Sharp](https://www.npmjs.com/package/sharp)套件，請執行下列命令：
+若在Windows環境無法安裝[Sharp](https://www.npmjs.com/package/sharp)(圖片處理套件)，請執行下列命令安裝`Windows Build Tools`來建置編譯環境：
 ```
 $ npm install --global --production windows-build-tools
 $ npm config set msvs_version 2015 --global
