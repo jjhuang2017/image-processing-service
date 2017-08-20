@@ -5,58 +5,54 @@ var sharp = require('sharp');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'public/images/')
+		cb(null, 'public/images/')
     },
     filename: function (req, file, cb) {
 		var fileFormat = (file.originalname).split(".");
-        cb(null, 'crop_image.png');
-		//cb(null, Date.now() + '.png');
-  }
+        cb(null, 'crop_image_' + Math.floor(Date.now() / 10000) + '.png');
+	}
 })
 
 var upload = multer({ storage: storage })
 var path = 'public/images/';
+var host = '127.0.0.1:3003';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/Image-Upload-Service', upload.single('imageupload'),function(req, res) {
-  res.send("image upload sucessfully.");
-});
-
-router.get('/Large-Image-URL', function(req, res) {
-	sharp(path + 'crop_image.png')
-		.resize(150, 150)
-		.toFile(path + '/large/' + Math.floor(Date.now() / 1000) + '.png', function(err) {  
+router.post('/Image-Upload-Service/large', upload.single('imageupload'),function(req, res) { 
+	sharp(path + 'crop_image_' + Math.floor(Date.now() / 10000) + '.png')
+	.resize(150, 150)
+	.toFile(path + '/large/' + Math.floor(Date.now() / 10000) + '.png', function(err) {  
 		if (err) {  
 			throw err;  
 		}  
 	});
-	res.send('http://127.0.0.1:3003/images/large/' + Math.floor(Date.now() / 1000) + '.png');
+	res.send('http://' + host + '/images/large/' + Math.floor(Date.now() / 10000) + '.png');
 });
 
-router.get('/Medium-Image-URL', function(req, res) {
-	sharp(path + 'crop_image.png')
-		.resize(100, 100)
-		.toFile(path + '/medium/' + Math.floor(Date.now() / 1000) + '.png', function(err) {  
+router.post('/Image-Upload-Service/medium', upload.single('imageupload'),function(req, res) { 
+	sharp(path + 'crop_image_' + Math.floor(Date.now() / 10000) + '.png')
+	.resize(100, 100)
+	.toFile(path + '/medium/' + Math.floor(Date.now() / 10000) + '.png', function(err) {  
 		if (err) {  
 			throw err;  
 		}  
 	});
-	res.send('http://127.0.0.1:3003/images/medium/' + Math.floor(Date.now() / 1000) + '.png');
+	res.send('http://' + host + '/images/medium/' + Math.floor(Date.now() / 10000) + '.png');
 });
 
-router.get('/Small-Image-URL', function(req, res) {
-	sharp(path + 'crop_image.png')
-		.resize(50, 50)
-		.toFile(path + '/small/' + Math.floor(Date.now() / 1000) + '.png', function(err) {  
+router.post('/Image-Upload-Service/small', upload.single('imageupload'),function(req, res) { 
+	sharp(path + 'crop_image_' + Math.floor(Date.now() / 10000) + '.png')
+	.resize(50, 50)
+	.toFile(path + '/small/' + Math.floor(Date.now() / 10000) + '.png', function(err) {  
 		if (err) {  
 			throw err;  
 		}  
 	});
-	res.send('http://127.0.0.1:3003/images/small/' + Math.floor(Date.now() / 1000) + '.png');
+	res.send('http://' + host + '/images/small/' + Math.floor(Date.now() / 10000) + '.png');
 });
 
 module.exports = router;
