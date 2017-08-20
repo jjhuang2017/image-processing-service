@@ -51,11 +51,11 @@ Type：POST
 ```
 * 中圖示(medium)處裡服務介面
 ```
-Type：POST
 URL：http://localhost:3003/Image-Upload-Service/medium
+Type：POST
 ```
 * 小圖示(small)處裡服務介面
 ```
-Type：POST
 URL：http://localhost:3003/Image-Upload-Service/small
+Type：POST
 ```
