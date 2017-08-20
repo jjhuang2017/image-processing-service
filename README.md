@@ -42,23 +42,20 @@ http://localhost:3003
 ## 圖片處理服務的應用程式介面(API)說明
 
 圖片上傳與圖片縮放處理服務介面：
-本服務介面提供剪裁圖片上傳與圖片縮放處理功能，用戶可根據需求取得各種尺寸的圖片縮址。本服務介面主要提供三種尺寸圖片縮址，分別說明如下：
+本服務介面提供剪裁圖片上傳與圖片縮放處理功能，用戶可根據需求取得各種尺寸的圖片縮址。本服務介面主要提供三種尺寸圖片縮址如下：
 
 * 大圖示(large)
 ```
 URL：http://localhost:3003/Image-Upload-Service/large
 Type：POST
-Return：http://localhost:3003/images/large/imageName.png
 ```
 * 中圖示(medium)
 ```
 Type：POST
 URL：http://localhost:3003/Image-Upload-Service/medium
-Return：http://localhost:3003/images/medium/imageName.png
 ```
 * 小圖示(small)
 ```
 Type：POST
 URL：http://localhost:3003/Image-Upload-Service/small
-Return：http://localhost:3003/images/small/imageName.png
 ```
