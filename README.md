@@ -41,26 +41,16 @@ http://localhost:3003
 
 ## 圖片處理服務的應用程式介面(API)說明
 
-* 圖片上傳服務介面：
+* 圖片上傳與圖片縮放處理服務介面：
+```
+URL：http://localhost:3003/Image-Upload-Service/large
+Type：POST
+```
 ```
 Type：POST
-URL：http://localhost:3003/Image-Upload-Service
+URL：http://localhost:3003/Image-Upload-Service/medium
 ```
-
-* 圖片縮址(大圖示)服務介面：
 ```
-Type：GET
-URL：http://localhost:3003/Large-Image-URL
-```
-
-* 圖片縮址(中圖示)服務介面：
-```
-Type：GET
-URL：http://localhost:3003/Medium-Image-URL
-```
-
-* 圖片縮址(小圖示)服務介面：
-```
-Type：GET
-URL：http://localhost:3003/Small-Image-URL
+Type：POST
+URL：http://localhost:3003/Image-Upload-Service/small
 ```
